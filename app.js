@@ -5,6 +5,30 @@ let weather={
 
 
 fetch(url).then((res) => res.json())
-.then((data)=> console.log("yayy!", data))
+.then((data)=> console.log("Nice!", data.main))
 
-.catch((e)=> console.log("oh shit", e))
+.catch((e)=> console.log("Oh no!", e))
+
+function show(){
+fetch(url).then(res =>{
+   console.log("nice", res)
+   return res.json()
+})
+.then((data)=> {
+document.querySelector('#temp').innerHTML=data.main.temp})
+
+}
+show()
+
+
+function humid(){
+fetch(url).then(res =>{
+    console.log("nice", res)
+    return res.json()
+    
+.then((data)=> {
+        document.querySelector('.humidity').innerHTML=data.main.humidity})
+        }
+
+ )}
+ humid()
