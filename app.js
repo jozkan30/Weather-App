@@ -1,7 +1,26 @@
-let url= "https://api.openweathermap.org/data/2.5/weather?q=new+york&appid=f1a17735b0b7dad7e6648e6d088587f0&units=imperial"
+let appKey = "f1a17735b0b7dad7e6648e6d088587f0&units=fahrenheit";
 
-let weather={
-"apiKey":"f1a17735b0b7dad7e6648e6d088587f0",}
+let url= "https://api.openweathermap.org/data/2.5/weather?q=" 
++ city 
++ appKey; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 fetch(url).then((res) => res.json())
