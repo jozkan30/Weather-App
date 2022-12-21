@@ -1,45 +1,31 @@
-.search{
-padding: 5px;
-}
+
+
 
 body{
 display: flex;
-justify-content:center;
+justify-content: center;
 align-items: center;
-height: 100vh;
-margin: 0;
-background-color: rgb(210, 160, 160);
+
 }
-
-
 
 .ui{
-background: rgb(0, 0, 0); opacity: .3;
-padding: 2em;
+  background: hsla(251, 74%, 43%, 1);
 border-radius: 30px;
-width: 100%;
-max-width: 420px;
-margin: 1em;
-box-shadow: 1em;
-}
-.weather{
-    color: white;
+height:350px;
+width: 350px;
+text-align: center;
 
 }
 
 
-.search{
-background-color: rgb(0, 0, 0);
-color: #ffffff;
-
-}
 
 
 button{
-border-radius: 15px;
-background-color: white;
-}
 
+width: auto;
+
+
+}
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -47,4 +33,5 @@ background-color: white;
   'wght' 400,
   'GRAD' 0,
   'opsz' 48;
+  color: blueviolet;
 }

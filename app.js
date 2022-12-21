@@ -1,65 +1,52 @@
-let appKey = "f1a17735b0b7dad7e6648e6d088587f0&units=fahrenheit";
-
-let url= "https://api.openweathermap.org/data/2.5/weather?q=" 
-+ city 
-+ appKey; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fetch(url).then((res) => res.json())
-.then((data)=> console.log("Nice!", data.main))
-
-.catch((e)=> console.log("Oh no!", e))
-
-function show(){
-fetch(url).then(res =>{
-   console.log("nice", res)
-   return res.json()
-})
-.then((data)=> {
-document.querySelector('#temp').innerHTML=data.main.temp + " °"})
-
-}
-show()
-
-
-function humid(){
-fetch(url).then(res =>{
-    console.log("nice", res)
-    return res.json()
-    
-.then((data)=> {
-        document.querySelector('.humidity').innerHTML=data.main.humidity + " %"})
-        }
-
- )}
- humid()
-
- function wind(){
-    fetch(url).then(res =>{
-        console.log("nice", res)
-        return res.json()
-        
-    .then((data)=> {
-            document.querySelector('.wind').innerHTML=data.wind.speed + " mph"})
-            }
-    
-     )}
-     wind()
+let weather = {
+    apiKey: "f1a17735b0b7dad7e6648e6d088587f0",
+    fetchWeather: function (city) {
+      fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+          city +
+          "&appid=" +
+          this.apiKey + "&units=imperial"
+      )
+        .then((response) => {
+          if (!response.ok) {
+            alert("No weather found.");
+            throw new Error("No weather found.");
+          }
+          return response.json();
+        })
+        .then((data) => this.displayWeather(data));
+    },
+    displayWeather: function (data) {
+      const { name } = data;
+      const { icon, description } = data.weather[0];
+      const { temp, humidity } = data.main;
+      const { speed } = data.wind;
+      document.querySelector(".city").innerText = "Weather in " + name;
+      document.querySelector(".icon").src =
+        "https://openweathermap.org/img/wn/" + icon + ".png";
+      document.querySelector(".description").innerText = description;
+      document.querySelector(".temp").innerText = temp + "°F";
+      document.querySelector(".humidity").innerText =
+        "Humidity: " + humidity + "%";
+      document.querySelector(".wind").innerText =
+        "Wind speed: " + speed + " km/h";
+      document.querySelector(".weather").classList.remove("loading");
+    },
+    search: function () {
+      this.fetchWeather(document.querySelector(".search-bar").value);
+    },
+  };
+  
+  document.querySelector(".search button").addEventListener("click", function () {
+    weather.search();
+  });
+  
+  document
+    .querySelector(".search-bar")
+    .addEventListener("keyup", function (event) {
+      if (event.key == "Enter") {
+        weather.search();
+      }
+    });
+  
+  weather.fetchWeather("New York");
