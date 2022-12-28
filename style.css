@@ -1,15 +1,25 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
 
 body{
 display: flex;
 justify-content: center;
 align-items: center;
-
+background: radial-gradient(#FF6E31, #AD8E70);
+font-family: 'Mukta', sans-serif;
 }
 
+
+.container{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 100px;
+}
+
+
 .ui{
-  background: hsla(251, 74%, 43%, 1);
+background-color: #497174;
 border-radius: 30px;
 height:350px;
 width: 350px;
@@ -33,5 +43,5 @@ width: auto;
   'wght' 400,
   'GRAD' 0,
   'opsz' 48;
-  color: blueviolet;
+  color: #FF6E31
 }
