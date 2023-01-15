@@ -8,6 +8,6 @@
 
 #### Technologies Used
 - JavaScript
-- React
+- Node.js
 - CSS
 - HTML 
